@@ -1,27 +1,48 @@
-# SURPRISE-
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCOME Congratulations</title>
+    <title>TODAY'S GIFT</title> <!-- Updated title -->
+    <style>
+        /* CSS styling for the virtual gift package */
+        body {
+            background-image: url('medical-education-background.jpg'); /* Background image representing medical education */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white; /* Text color to contrast with the background */
+        }
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background-image: url('gift-box.png'); /* Gift box image */
+            background-size: cover;
+            display: inline-block;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .gift-box:hover {
+            animation: bounce 0.5s ease-in-out infinite; /* Add a bouncing animation on hover */
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
 </head>
 <body>
-    <h1>Congratulations on Being a SCOME Member!</h1>
-    <p>Please enter your name:</p>
-    <input type="text" id="nameInput">
-    <button onclick="showMessage()">Get Surprise</button>
+    <h1>GIFT OF TODAY</h1> <!-- Updated name of the gift box channel -->
+    <div class="gift-box" onclick="revealMessage(this)"></div> <!-- Gift box element with onclick event -->
 
-    <div id="message" style="display: none;">
-        <p id="congratsMessage"></p>
-    </div>
-
+    <!-- JavaScript to reveal a congratulatory message when clicking on the gift box -->
     <script>
-        function showMessage() {
-            var name = document.getElementById("nameInput").value;
-            var message = "Dear " + name + ",<br><br>Congratulations on being a valued member of SCOME. Your dedication and support are truly appreciated!<br><br>With warm regards,<br>HAWA, SCOME COORDINATOR";
-            document.getElementById("congratsMessage").innerHTML = message;
-            document.getElementById("message").style.display = "block";
+        function revealMessage(box) {
+            // Add animation or transition to simulate opening the gift box
+            box.style.transform = "rotateY(180deg)";
+            
+            // Display a more adorable and exciting congratulatory message inside the gift box
+            box.innerHTML = "<p style='margin-top: 50px; font-size: 18px;'>🎉 Hooray! Congratulations to our incredible SCOME members! 🌟 Your unwavering support and enthusiasm have brought so much joy and success to our team! 🥳 Let's celebrate together! 🎈</p>";
         }
     </script>
 </body>
