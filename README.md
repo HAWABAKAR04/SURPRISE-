@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-    <h1>GIFT OF TODAY</h1> <!-- Updated name of the gift box channel -->
+    <h1 id="title"></h1> <!-- Updated name of the gift box channel -->
     <div class="gift-box" onclick="revealMessage(this)"></div> <!-- Gift box element with onclick event -->
 
     <!-- JavaScript to reveal a congratulatory message when clicking on the gift box -->
@@ -41,8 +41,29 @@
             // Add animation or transition to simulate opening the gift box
             box.style.transform = "rotateY(180deg)";
             
-            // Display a more adorable and exciting congratulatory message inside the gift box
-            box.innerHTML = "<p style='margin-top: 50px; font-size: 18px;'>🎉 Hooray! Congratulations to our incredible SCOME members! 🌟 Your unwavering support and enthusiasm have brought so much joy and success to our team! 🥳 Let's celebrate together! 🎈</p>";
+            // Display a typing effect for the congratulatory message
+            var message = "🎉 Hooray! Congratulations to our incredible SCOME members! 🌟 Your unwavering support and enthusiasm have brought so much joy and success to our team! 🥳 Let's celebrate together! 🎈";
+            var title = "TODAY'S GIFT";
+            var speed = 50; // Adjust the speed of typing
+            
+            document.getElementById("title").innerText = ""; // Clear the title initially
+            
+            // Typing effect for the title
+            for (var i = 0; i < title.length; i++) {
+                setTimeout(function() {
+                    document.getElementById("title").innerText += title.charAt(i);
+                }, speed * i);
+            }
+            
+            // Typing effect for the message
+            setTimeout(function() {
+                box.innerHTML = ""; // Clear the box initially
+                for (var i = 0; i < message.length; i++) {
+                    setTimeout(function() {
+                        box.innerHTML += message.charAt(i);
+                    }, speed * i);
+                }
+            }, speed * title.length);
         }
     </script>
 </body>
