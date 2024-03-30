@@ -41,29 +41,20 @@
             // Add animation or transition to simulate opening the gift box
             box.style.transform = "rotateY(180deg)";
             
-            // Display a typing effect for the congratulatory message
+            // Display the title immediately
+            document.getElementById("title").innerText = "TODAY'S GIFT";
+            
+            // Display the message with a typing effect
             var message = "🎉 Hooray! Congratulations to our incredible SCOME members! 🌟 Your unwavering support and enthusiasm have brought so much joy and success to our team! 🥳 Let's celebrate together! 🎈";
-            var title = "TODAY'S GIFT";
-            var speed = 50; // Adjust the speed of typing
-            
-            document.getElementById("title").innerText = ""; // Clear the title initially
-            
-            // Typing effect for the title
-            for (var i = 0; i < title.length; i++) {
-                setTimeout(function() {
-                    document.getElementById("title").innerText += title.charAt(i);
-                }, speed * i);
-            }
-            
-            // Typing effect for the message
-            setTimeout(function() {
-                box.innerHTML = ""; // Clear the box initially
-                for (var i = 0; i < message.length; i++) {
-                    setTimeout(function() {
-                        box.innerHTML += message.charAt(i);
-                    }, speed * i);
+            var i = 0;
+            function typeMessage() {
+                if (i < message.length) {
+                    box.innerHTML += message.charAt(i);
+                    i++;
+                    setTimeout(typeMessage, 50); // Adjust typing speed (milliseconds)
                 }
-            }, speed * title.length);
+            }
+            typeMessage();
         }
     </script>
 </body>
